@@ -15,45 +15,45 @@ header-img: "img/post-bg-rwd.jpg"
 <div class="zh post-container">
 
     <!--copied from markdown -->
-    <blockquote><p>冰冻三尺 非一日之寒<br>
-    积土成山 非斯须之作</p></blockquote>
+    <blockquote><p>青山依旧在 几度夕阳红<br>
+        古今多少事 都付笑谈中</p></blockquote>
 
-    <p>Hey，我是<strong>柏荧(BY)</strong>，一只iOS程序猿，现在厦门工作。</p>
+    <p>Hey there! I am <strong>Lu Haorong</strong>, a junior student at Shanghai Jiao Tong University, major in ECE. My
+        research interest is cloud computing. From December 2020 to May 2021, I worked as an intern in the
+        infrastructure department of ByteDance and mainly responsible for the development of elastic bare metal.
+        Currently, I work as an undergraduate research assistant at the Wireless Networking and Artificial Intelligence
+        Lab, SJTU. My main research direction is edge computing. I am also seeking for a CS Master opportunity. </p>
 
-    <p>工作、学习之余，我还是一个健身爱好者，同时也非常喜欢拳击。</p>
-
-    <p>这是我的利用 <a href="https://pages.github.com/">GitHub Pages</a> 与 <a href="http://jekyll.com.cn/">Jekyll</a> 搭建的 个人博客。我在GitHub主页<a href="https://github.com/qiubaiying">👉GitHub·BY</a> 与 简书主页<a href="https://http://www.jianshu.com/u/e71990ada2fd">👉BY</a>。如果有什么问题，欢迎提出探讨~</p>
-
-    <p></p>
-    
-    <h5>Talks</h5>
+    <h5>Relative Websites:</h5>
 
     <ul>
-        <li><a href="https://github.com">GitHub</a></li>
-        <li><a href="http://jekyll.com.cn/">jekyll</a></li>
-        <li><a href="http://huangxuan.me/">Hux</a></li> 
-        <li><a href="https://analytics.google.com/analytics">Google Analytics</a></li>
+        <li><a href="https://github.com/ancientmodern/">GitHub</a></li>
+        <li><a href="https://www.bytedance.com/en/">Bytedance</a></li>
+        <li><a href="https://wanglab.sjtu.edu.cn/">Wireless Networking and Artificial Intelligence Lab</a></li>
+        <li><a href="https://www.sjtu.edu.cn/">Shanghai Jiao Tong University</a></li>
+        <li><a href="https://www.ji.sjtu.edu.cn/">UM-SJTU Joint Institute</a></li>
     </ul>
 </div>
 
 <!-- English Version -->
 <!-- <div class="en post-container">
-    <blockquote><p>Yet another iOS Developer. <br>
-    Yet another Life-long Student.</p></blockquote>
+    <blockquote><p>青山依旧在 几度夕阳红<br>
+        古今多少事 都付笑谈中</p></blockquote>
 
-    <p>Hi, I am <strong>Baiying Qiu</strong>，you can call me <strong>BY</strong>. I am an iOS software engineer and currently working in Xiamen</p>
+    <p>Hey there! I am Lu Haorong, a junior student at Shanghai Jiao Tong University, major in ECE. My research interest
+        is cloud computing. From December 2020 to May 2021, I worked as an intern in the infrastructure department of
+        ByteDance and mainly responsible for the development of elastic bare metal. Currently, I work as an
+        undergraduate research assistant at the Wireless Networking and Artificial Intelligence Lab, SJTU. My main
+        research direction is edge computing. I am also seeking for a CS Master opportunity. </p>
 
-    <p>This is my personal blog, through making Github Pages and Jekyll.My GitHub  👉 <a href="http://github.com/qiubaiying">Github·BY</a>.</p>
-    
-    <p>I am a sports enthusiast, I like fitness, running and boxing.</p>
-
-    <h5>Talks</h5>
+    <h5>Relative Websites:</h5>
 
     <ul>
-    <li><a href="https://github.com">GitHub</a></li>
-    <li><a href="http://jekyll.com.cn/">jekyll</a></li>
-    <li><a href="https://pages.github.com/">GitHub Pages</a></li>
-    <li><a href="https://qiubaiying.github.io">BY</a></li>
+        <li><a href="https://github.com/ancientmodern/">GitHub</a></li>
+        <li><a href="https://www.bytedance.com/en/">Bytedance</a></li>
+        <li><a href="https://wanglab.sjtu.edu.cn/">Wireless Networking and Artificial Intelligence Lab</a></li>
+        <li><a href="https://www.sjtu.edu.cn/">Shanghai Jiao Tong University</a></li>
+        <li><a href="https://www.ji.sjtu.edu.cn/">UM-SJTU Joint Institute</a></li>
     </ul>
 </div> -->
 
@@ -68,15 +68,15 @@ header-img: "img/post-bg-rwd.jpg"
     window.addEventListener('hashchange', _render);
 
     // handle render
-    function _render(){
+    function _render() {
         var _hash = window.location.hash;
         // en
-        if(_hash == "#en"){
+        if (_hash == "#en") {
             $select.selectedIndex = 1;
             $en.style.display = "block";
             $zh.style.display = "none";
-        // zh by default
-        }else{
+            // zh by default
+        } else {
             // not trigger onChange, otherwise cause a loop call.
             $select.selectedIndex = 0;
             $zh.style.display = "block";
@@ -85,10 +85,10 @@ header-img: "img/post-bg-rwd.jpg"
     }
 
     // handle select change
-    function onLanChange(index){
-        if(index == 0){
+    function onLanChange(index) {
+        if (index == 0) {
             window.location.hash = "#zh"
-        }else{
+        } else {
             window.location.hash = "#en"
         }
     }
@@ -105,22 +105,27 @@ header-img: "img/post-bg-rwd.jpg"
 <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
 
 <div id="gitalk-container"></div>
-    <script type="text/javascript">
+<script type="text/javascript">
     var gitalk = new Gitalk({
-    clientID: '{{site.gitalk.clientID}}',
-    clientSecret: '{{site.gitalk.clientSecret}}',
-    repo: '{{site.gitalk.repo}}',
-    owner: '{{site.gitalk.owner}}',
-    admin: ['{{site.gitalk.admin}}'],
-    distractionFreeMode: {{site.gitalk.distractionFreeMode}},
+        clientID: '{{site.gitalk.clientID}}',
+        clientSecret: '{{site.gitalk.clientSecret}}',
+        repo: '{{site.gitalk.repo}}',
+        owner: '{{site.gitalk.owner}}',
+        admin: ['{{site.gitalk.admin}}'],
+        distractionFreeMode: {
+    {
+        site.gitalk.distractionFreeMode
+    }
+    },
     id: 'about',
-    });
+    })
+    ;
     gitalk.render('gitalk-container');
 </script>
 {% endif %}
 <!-- Gitalk end -->
 
- <!-- disqus 评论框 start  -->
+<!-- disqus 评论框 start  -->
 {% if site.disqus.enable %}
 
 <div class="comment">
@@ -136,8 +141,10 @@ header-img: "img/post-bg-rwd.jpg"
     var disqus_identifier = "{{site.disqus.username}}/{{page.url}}";
     var disqus_url = "{{site.url}}{{page.url}}";
 
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
