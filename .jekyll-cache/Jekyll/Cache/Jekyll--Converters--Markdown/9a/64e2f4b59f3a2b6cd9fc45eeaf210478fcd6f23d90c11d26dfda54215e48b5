@@ -1,0 +1,107 @@
+I"F<h2 id="backgrounds">Backgrounds</h2>
+
+<ul>
+  <li>内核：<a href="https://github.com/XTLS/Xray-core">Xray-core</a></li>
+  <li>协议：VLESS + TCP + XTLS（仅有 Xray 内核支持）</li>
+  <li>VPS 物理地址：JP - Equinix Osaka SoftBank</li>
+  <li>VPS 规格：
+    <ul>
+      <li>CPU: 1x Intel Xeon</li>
+      <li>RAM: 1 GB</li>
+      <li>SSD: 20 GB RAID-10</li>
+      <li>Transfer: 500 GB/month</li>
+      <li>Link speed: 1 Gigabit</li>
+      <li>OS: Debian Buster</li>
+      <li>Support China Telecom CN2 GIA</li>
+      <li>Enterprise level transport for China Unicom provided by China Telecom</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="qr-code">QR Code</h2>
+
+<p><strong><em>付费内容（价格超优惠！）</em></strong></p>
+
+<p><br /></p>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<h3 id="windows">Windows</h3>
+
+<h4 id="客户端v2rayn">客户端：v2rayN</h4>
+
+<p><strong>4.14 版本</strong>下载：<a href="https://github.com/2dust/v2rayN/releases/download/4.14/v2rayN-Core.zip">v2rayN-4.14.zip</a></p>
+
+<p>官方 release 仓库：https://github.com/2dust/v2rayN/releases</p>
+
+<h4 id="使用方式">使用方式</h4>
+
+<ol>
+  <li>
+    <p>解压压缩包，打开 <strong><code class="language-plaintext highlighter-rouge">v2rayN.exe</code></strong> ，点击桌面右下角的图标打开</p>
+  </li>
+  <li>“设置” -&gt; “参数设置” -&gt; “v2rayN 设置” -&gt; “Core类型改为Xray_Core” -&gt; “确认”<img src="/typora-user-images/image-20210505034929891.png" alt="image-20210505034929891" style="zoom:67%;" /></li>
+  <li>“服务器” -&gt; “扫描屏幕上的二维码”</li>
+  <li>(可选) 右键点击「服务器列表」中新添加的条目 -&gt; “测试服务器延迟Ping”，查看是否可以 Ping 通</li>
+  <li>右键点击「服务器列表」中的条目 -&gt; “设为活动服务器”</li>
+  <li>“设置” -&gt; “路由设置” -&gt; “基础功能” -&gt; “一键导入基础规则” -&gt; “确认”<img src="/typora-user-images/image-20210505034943893.png" alt="image-20210505034943893" style="zoom:67%;" /></li>
+  <li>右键点击桌面右下角的图标 -&gt; “系统代理” -&gt; “自动配置系统代理”，开始使用</li>
+</ol>
+
+<h3 id="android">Android</h3>
+
+<h4 id="客户端v2rayng">客户端：v2rayNG</h4>
+
+<p><strong>1.5.16版本</strong>下载：<a href="https://github.com/2dust/v2rayNG/releases/download/1.5.16/v2rayNG_1.5.16_arm64-v8a.apk">v2rayNG_1.5.16_arm64-v8a.apk</a> 或者 Google Play 中搜索 <strong>v2rayNG</strong></p>
+
+<p>官方 release 仓库：https://github.com/2dust/v2rayNG/releases</p>
+
+<h4 id="使用方式-1">使用方式</h4>
+
+<ol>
+  <li>打开 <code class="language-plaintext highlighter-rouge">v2rayNG</code> 程序</li>
+  <li>点击右上角的 “+” 号 -&gt; “扫描二维码”</li>
+  <li>点击右下角的 “V” 键，开始使用</li>
+</ol>
+
+<h3 id="ios">IOS</h3>
+
+<h4 id="客户端shadowrocket">客户端：ShadowRocket</h4>
+
+<p>需要<strong>美区 App Store 账号</strong>，注意 ShadowRocket 的版本需要 &gt;= 2.1.68 (1162)，之前安装的版本不一定支持</p>
+
+<p><em>TODO：提供长久可靠的美服共享账号</em></p>
+
+<h4 id="使用方式-2">使用方式</h4>
+
+<p><em>TODO：待完成，应该也可以扫描二维码</em></p>
+
+<p><br /></p>
+
+<h3 id="macos">macOS</h3>
+
+<p><em>TODO：Qv2ray 或者 v2rayN</em></p>
+
+<p><br /></p>
+
+<h3 id="软路由">软路由</h3>
+
+<p><em>TODO：OpenWrt + HelloWorld 插件</em></p>
+
+<p><br /></p>
+
+<h2 id="benchmark">BenchMark</h2>
+
+<ul>
+  <li>VPS 双向流量上限为 500GB/月，带宽上限为 1Gbps，和市面主流梯子对比，大致可以满足 5 人的中度使用或 10 人的轻度使用需求，且不限制设备数量</li>
+  <li>简单的测试：
+    <ul>
+      <li>节假日（5月4日）晚高峰时间，可以轻松跑满上海电信 200Mbps 带宽，CPU 使用率为 40%，受限于物理带宽，暂时无法测试更高的带宽并发量<img src="/typora-user-images/image-20210505033117266.png" alt="image-20210505033117266" /></li>
+      <li>节假日（5月4日）晚高峰时间，观看 <a href="https://www.youtube.com/watch?v=zCLOJ9j1k2Y&amp;t=74s">youtube 4K 60FPS 视频</a>，缓冲速度峰值达到 210Mbps，基本可以稳定在 150Mbps，播放流畅；8K 60FPS 视频受限于客户端 CPU 性能（视频解码 + 流量加解密），可能会造成电脑卡死，最好使用专门的软路由<img src="/typora-user-images/image-20210505035129919.png" alt="image-20210505035129919" /></li>
+      <li>节假日（5月4日）晚高峰时间，在上海电信网络 ping 主机域名，平均延迟在 40ms 左右，未出现丢包现象，连接稳定<img src="/typora-user-images/image-20210505034550492.png" alt="image-20210505034550492" style="zoom:67%;" /></li>
+    </ul>
+  </li>
+  <li>未来可能存在的瓶颈：服务端 CPU 性能较弱，考虑升级到双核</li>
+</ul>
+
+:ET

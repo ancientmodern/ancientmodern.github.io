@@ -1,0 +1,49 @@
+I"<h2 id="前言">前言</h2>
+
+<p>在参照 <a href="https://kubeedge.io/en/docs/setup/keadm/">KubeEdge 官方文档</a> 进行部署时，发现文档有很多没有说清楚的地方，比如 <code class="language-plaintext highlighter-rouge">keadm</code> 这个工具是怎么获取的，同时也省略了所有原生
+Docker 与 Kubernetes 的部署，对没有接触过这些组件的开发者不太友好，所以写了这篇比较详细的文章，希望能帮助“后人”少踩一点坑。</p>
+
+<h2 id="docker-环境配置">Docker 环境配置</h2>
+
+<p>参考 <a href="https://docs.docker.com/engine/install/">Docker 官方文档</a> ，选择对应的操作系统版本。</p>
+
+<h2 id="kubernetes-环境配置">Kubernetes 环境配置</h2>
+
+<h3 id="配置-kubernetes-源">配置 Kubernetes 源</h3>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 转到root用户</span>
+su
+<span class="c"># 这里用的是阿里镜像源</span>
+<span class="nb">echo</span> <span class="s2">"deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main"</span> <span class="o">&gt;</span> /etc/apt/source.list.d/kubernetes.list
+apt update
+
+<span class="c"># 如果apt update时报错</span>
+<span class="c"># W: GPG error: https://mirrors.aliyun.com/kubernetes/apt kubernetes-xenial InRelease: </span>
+<span class="c"># The following signatures couldn't be verified because the public key is not available: </span>
+<span class="c"># NO_PUBKEY XXXXXXXXXXXXXXXX NO_PUBKEY YYYYYYYYYYYYYYYY</span>
+apt <span class="nb">install </span>gpg
+gpg <span class="nt">--keyserver</span> keyserver.ubuntu.com <span class="nt">--recv</span> <span class="o">{</span>XXXXXXXXXXXXXXXX, YYYYYYYYYYYYYYYY<span class="o">}</span>
+gpg <span class="nt">--export</span> <span class="nt">--armor</span> XXXXXXXXXXXXXXXX | apt-key add -
+gpg <span class="nt">--export</span> <span class="nt">--armor</span> YYYYYYYYYYYYYYYY | apt-key add -
+apt update
+</code></pre></div></div>
+
+<h3 id="安装-kubeadm-kubectl-kubelet">安装 kubeadm, kubectl, kubelet</h3>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt <span class="nb">install </span>kubeadm kubectl kubelet
+<span class="c"># 检查安装是否成功，版本是否一致</span>
+kubeadm version
+kubectl version
+kubelet <span class="nt">--version</span>
+</code></pre></div></div>
+
+<h3 id="使用-kubeadm-初始化-kubernetes">使用 kubeadm 初始化 Kubernetes</h3>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubeadm init <span class="nt">--kubernetes-version</span><span class="o">=</span>&lt;K8S_VERSION&gt; <span class="nt">--apiserver-advertise-address</span><span class="o">=</span>&lt;MASTER IP&gt; <span class="nt">--image-repository</span> registry.aliyuncs.com/google_containers <span class="nt">--service-cidr</span><span class="o">=</span>10.1.0.0/16 <span class="nt">--pod-network-cidr</span><span class="o">=</span>10.244.0.0/16
+</code></pre></div></div>
+
+<p>其中，将 <code class="language-plaintext highlighter-rouge">&lt;MASTER IP&gt;</code> 替换为 master 节点的IP地址，kubernetes-version 与之前安装的 kubeadm 等软件版本一致。初始化成功之后会出现执行 <code class="language-plaintext highlighter-rouge">kubeadm join</code> 加入节点的提示，这里我们不需要通过这种方式加入节点。</p>
+
+<p>注意 Kubernetes 的 Master 节点服务器必须拥有两个及以上的 CPU Cores，否则无法部署。</p>
+
+:ET
